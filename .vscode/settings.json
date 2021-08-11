@@ -1,0 +1,10 @@
+{
+  "liveServer.settings.ignoreFiles": [
+    "[scss]",
+    ".vscode/**",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.ts"
+  ],
+  "git.enabled": false
+}
