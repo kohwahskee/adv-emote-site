@@ -1,7 +1,10 @@
-// DEFAULT VALUES
+// DEFAULT APPLY VALUES
 let currFontValue = "Default", currFontSizeValue = "20px", currFontColorValue = 'undefined', currTextValue = '';
-let textLayerName = 'user';
-let defaultFont = 'ComicSansMS-Italic';
+let textLayerName;
+let defaultFont;
+let fileFormat = 'png';
+let enabledOptions = {};
+let whichEmote;
 const fontList = {
   "Default": defaultFont,
   "Pixel": "BPdots",
@@ -12,6 +15,7 @@ const fontList = {
   "BlackOps": "BlackOpsOne-Regular"
 }
 
+// CONTAINERS
 const prefWrappers = document.getElementsByClassName("pref-wrapper");
 const scrollArrows = document.getElementsByClassName("scroll-arrows");
 const settingsWrapper = document.getElementsByClassName("settings-wrapper")[0];
@@ -173,7 +177,14 @@ function dropList(
 //=============== FONT ===============
 for (let x = 0; x <= fontOptions.length-1; x++) {
   fontOptions[x].addEventListener('click', evt => {
+    knobButton.classList.add('knob-disabled');
+    document.body.style.cursor = 'wait';
     changeFont(textLayerName, fontList[fontOptions[x].innerText]);
+    
+    setTimeout(() => {
+      knobButton.classList.remove('knob-disabled');
+      document.body.style.cursor = 'auto';
+    }, 1500);
   }, {once: true})
 }
 
@@ -318,6 +329,7 @@ function applyAction() {
   let newFontSizeValue = document.querySelector('.fontSizeValue').innerText;
   let newFontColorValue;
   let emoteName;
+
   if (document.querySelector('.fontColor').getAttribute('data-color') !== undefined) {
     newFontColorValue = document.querySelector('.fontColor').getAttribute('data-color');
   }
@@ -348,19 +360,26 @@ function applyAction() {
     changeCnt++;
     emoteName = newTextValue;
   }
-  window.addEventListener('message', applyChanges)
+  if (changeCnt == 0) {
+    setStatus('emoteLoaded');
+  }
+  else {
+    window.addEventListener('message', applyChanges)
+  }
 
   function applyChanges(evt) {
+    console.log(changeCnt);
     if (evt.data === 'done') messageCnt++;
     if (messageCnt >= changeCnt) {
       if (newTextValue) {
-        exportEmote('png', 'lurk', newTextValue);
+        exportEmote(fileFormat, whichEmote, newTextValue);
       }
       else {
-        exportEmote('png', 'lurk', currTextValue);
+        exportEmote(fileFormat, whichEmote, currTextValue);
       }
       window.removeEventListener('message', applyChanges);
     }
+    
   }
 }
 

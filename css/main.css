@@ -221,6 +221,10 @@ body .big-wrapper .left-panel .knob-maxed-out {
   cursor: default;
 }
 
+body .big-wrapper .left-panel .knob-disabled {
+  pointer-events: none !important;
+}
+
 body .big-wrapper .right-panel {
   display: -webkit-box;
   display: -ms-flexbox;

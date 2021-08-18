@@ -159,6 +159,10 @@ body {
         pointer-events: none;
         cursor: default;
       }
+
+      .knob-disabled {
+        pointer-events: none !important;
+      }
     }
 
     .right-panel {
