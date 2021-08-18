@@ -318,7 +318,7 @@ body {
         height: 1.5vw;
         margin-right: 0.5vw;
         background-size: contain;
-        background-image: url("./assets/icons/Discord-Logo-White.svg");
+        background-image: url("../assets/icons/Discord-Logo-White.svg");
         background-repeat: no-repeat;
         opacity: 0.3;
         transform: translateY(15%);
@@ -363,7 +363,7 @@ body {
           width: 5vw;
           height: 5vw;
           //background: #5db17a;
-          background-image: url("./assets/icons/download-arrow.svg");
+          background-image: url("../assets/icons/download-arrow.svg");
           background-size: contain;
           background-repeat: no-repeat;
           opacity: 0;
@@ -668,19 +668,19 @@ ul {
 }
 
 .font-label::before {
-  background-image: url("./assets/icons/material-font.svg");
+  background-image: url("../assets/icons/material-font.svg");
 }
 
 .font-size-label::before {
-  background-image: url("./assets/icons/material-font-size.svg");
+  background-image: url("../assets/icons/material-font-size.svg");
 }
 
 .font-color-label::before {
-  background-image: url("./assets/icons/material-color.svg");
+  background-image: url("../assets/icons/material-color.svg");
 }
 
 .text-label::before {
-  background-image: url("./assets/icons/material-text.svg");
+  background-image: url("../assets/icons/material-text.svg");
 }
 
 #picker {

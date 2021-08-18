@@ -175,17 +175,17 @@ function dropList(
 }
 
 //=============== FONT ===============
-for (let x = 0; x <= fontOptions.length-1; x++) {
+for (let x = 0; x <= fontOptions.length - 1; x++) {
   fontOptions[x].addEventListener('click', evt => {
     knobButton.classList.add('knob-disabled');
     document.body.style.cursor = 'wait';
     changeFont(textLayerName, fontList[fontOptions[x].innerText]);
-    
+
     setTimeout(() => {
       knobButton.classList.remove('knob-disabled');
       document.body.style.cursor = 'auto';
     }, 1500);
-  }, {once: true})
+  }, { once: true })
 }
 
 //=============== FONT COLOR ===============
@@ -379,7 +379,7 @@ function applyAction() {
       }
       window.removeEventListener('message', applyChanges);
     }
-    
+
   }
 }
 
@@ -452,7 +452,7 @@ let loadingBlob = lottie.loadAnimation({
   renderer: "svg",
   loop: true,
   autoplay: false,
-  path: "/assets/icons/circle-blob-animation2.json",
+  path: "../assets/icons/circle-blob-animation2.json",
   name: "loadingBlobAnimation",
 });
 
