@@ -452,7 +452,7 @@ let loadingBlob = lottie.loadAnimation({
   renderer: "svg",
   loop: true,
   autoplay: false,
-  path: "../assets/icons/circle-blob-animation2.json",
+  path: "./assets/icons/circle-blob-animation2.json",
   name: "loadingBlobAnimation",
 });
 
